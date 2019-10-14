@@ -16,6 +16,14 @@ def rotate(path, degrees):
     return rotated
 
 
+def resize(image):
+    width, height = image.size
+    # ratio = (height // width) if (height // width) > 0 else 1
+    ratio = height / width
+    resized = image.resize((200, int(ratio*200)))
+    return resized
+
+
 def run():
     Tk().withdraw()
     filename = askopenfilename(title="Choose an image file to rotate")

@@ -3,6 +3,7 @@ from tkinter import ttk
 from tkinter.filedialog import askopenfilename
 from tkinter import simpledialog
 from PIL import Image, ImageTk
+from imageflip import resize
 
 
 def get_image():
@@ -14,7 +15,7 @@ def get_image():
 
 def submit():
     im = Image.open(path.get())
-    img = ImageTk.PhotoImage(im)
+    img = ImageTk.PhotoImage(resize(im))
     print(f"Loaded {type(img)} named {img} from {path.get()}")
     panel.configure(text="")
     panel.im = im
