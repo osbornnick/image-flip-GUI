@@ -28,7 +28,7 @@ def save():
     filename = path.get()
     type = 'PNG'
     im = panel.im
-    im = im.rotate(degrees.get())
+    im = im.rotate(degrees.get(), expand=True)
     saved_name = filename[:-4] + '-rotated' + '.' + type
     im.save(saved_name, type)
     print(f"Saved {saved_name} as {type} after rotating {degrees.get()} degrees.")
@@ -53,7 +53,7 @@ ttk.Button(mainframe, text="Submit", command=submit).grid(column=3, row=1)
 panel = ttk.Label(mainframe, text="Select an Image")
 panel.grid(column=1, row=2)
 
-ttk.Label(mainframe, text="Degrees rotation:").grid(column=2, row=2)
+ttk.Label(mainframe, text="Degrees counter-clockwise rotation:").grid(column=2, row=2)
 
 radios = ttk.Frame(mainframe)
 radios.grid(column=3, row=2)
